@@ -5,10 +5,8 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "lint": "eslint . --ext .ts --config .eslintrc",
-    "lintfix": "eslint . --ext .ts --config .eslintrc --fix",
-    "posttest": "eslint . --ext .ts --config .eslintrc",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
+    "lint": "eslint \"src/**/*.ts\"",
+    "test": "eslint \"src/**/*.ts\""
   },
   "keywords": [
     "oclif"

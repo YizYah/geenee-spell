@@ -2,13 +2,6 @@ import {types} from '../types'
 import {simpleValueEdit} from '../editSpecs/simpleValueEdit'
 import {askQuestion} from './askQuestion'
 
-interface NewSpecElementQuestion {
-  type: string;
-  name: string;
-  message: string;
-  validate?: Function;
-}
-
 export async function createSpecElement(specsForTypeContents: any, session: any = {}) {
   if (!specsForTypeContents) return {}
   const subTypes = Object.keys(specsForTypeContents)
