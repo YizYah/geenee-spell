@@ -9,7 +9,7 @@ const {moveOverIgnored} = require('magicalstrings').moveOverIgnored
 import {generateCode} from './generateCode'
 import {insertCustomChanges} from './customCode/insertCustomChanges'
 import {updatePackageJson} from './packageJson/updatePackageJson'
-import {createSpecElement} from '../settings/specs/createSpecElement'
+import {createSpecElement} from './specs/specCreation/createSpecElement'
 import {getPackageInfoJson} from './packageJson/getPackageInfoJson'
 import {Schema} from 'magicalstrings'
 import {buildSchema} from './schema/buildSchema'

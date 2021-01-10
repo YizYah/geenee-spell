@@ -1,16 +1,14 @@
 {
   "name": "geenee-spell",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "regenerates project code based upon settings and a template",
-  "main": "lib/index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint . --ext .ts --config .eslintrc",
     "lintfix": "eslint . --ext .ts --config .eslintrc --fix",
-    "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\""
   },
   "keywords": [
     "oclif"
@@ -51,12 +49,8 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "/bin",
-    "/lib",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
+    "/lib"
   ],
   "homepage": "https://github.com/YizYah/geenee-spell",
-  "repository": "YizYah/geenee-spell",
-  "types": "lib/index.d.ts"
+  "repository": "YizYah/geenee-spell"
 }
