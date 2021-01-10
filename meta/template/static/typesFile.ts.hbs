@@ -1,0 +1,11 @@
+{{custom helpers}}
+
+{{#each specs.types}}// {{description}}
+export interface {{capitalizeFirst name}} {
+/* ns__custom_start {{name}} */
+/* ns__custom_end {{name}} */
+}
+
+{{/each}}
+
+{{custom extraExports}}

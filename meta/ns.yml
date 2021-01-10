@@ -1,0 +1,15 @@
+userClass: user
+codeName: MyApp
+template:
+  dir: /home/yisroel/packages/packrat-ts-all/packrat
+  name: null
+  version: 1
+starter: /home/yisroel/packages/magic-spells-all/magic-spells.starter
+general:
+  packageName: geenee-spell
+  author: YizYah
+  owner: YizYah
+  repositoryName: geenee-spell
+  license: MIT
+  multi: false
+  description: regenerates project code based upon settings and a template
