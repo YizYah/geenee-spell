@@ -1,4 +1,3 @@
-/* ns__file unit: standard, comp: .eslintrc.js */
 module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
