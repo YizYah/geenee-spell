@@ -19,13 +19,16 @@ async function storeCustomCodeRegions(
   customCodeFile: string,
   config: Configuration
 ) {
+
   const fileNameFormat = config.format.customFileFilter
   const {custom} = config.dirs
-  const exludeModules = `node_modules/**/${fileNameFormat}`
+  const excludeModules = `node_modules/**/${fileNameFormat}`
+
   const general = `${rootDir}/**/${fileNameFormat}`
-  const nodeModules = `!${rootDir}/${exludeModules}`
+  const nodeModules = `!${rootDir}/${excludeModules}`
+  const noMeta = `!**/meta`
   const customModules = `!${rootDir}/${custom}/**/${fileNameFormat}`
-  const files = await globby([general, nodeModules, customModules])
+  const files = await globby([general, nodeModules, noMeta, customModules])
   // console.log(`number of files: ${files.length} files = ${JSON.stringify(files)}`)
 
   let i

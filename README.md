@@ -3,7 +3,7 @@
 
 [//]: # ( ns__custom_start beginning )
 
-![geenee-spell](src/custom/images/geenee-generate.jpg)
+![geenee-spell](src/custom/images/geenee-spell.gif)
 
 [//]: # ( ns__custom_end beginning )
 

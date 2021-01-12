@@ -10,7 +10,8 @@
     "test": "eslint \"src/**/*.ts\""
   },
   "keywords": [
-    "oclif"
+    "packrat",
+    "geenee"
   ],
   "author": "YizYah",
   "license": "MIT",

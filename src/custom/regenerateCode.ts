@@ -79,6 +79,7 @@ export async function regenerateCode(
 
   // regenerate the code
   try {
+    await fs.remove(codeDir)
     await copyCodeBaseToNewDir(starter, codeDir)
   } catch (error) {
     throw new Error(`could not copy code base: ${error}`)
@@ -100,9 +101,11 @@ export async function regenerateCode(
     throw new Error(`could not regenerate the code: ${error}`)
   }
 
+  await new Promise(r => setTimeout(r, 1000))
+
+
   try {
     const customCodeDoc = `${metaDir}/${fileNames.CUSTOM_CODE_FILE}`
-    await new Promise(r => setTimeout(r, 2000))
     await insertCustomChanges(
       codeDir, customCodeDoc, config
     )
