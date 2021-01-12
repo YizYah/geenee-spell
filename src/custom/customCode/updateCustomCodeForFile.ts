@@ -74,7 +74,7 @@ export async function updateCustomCodeForFile(
     if (!replacedCode[location]) return match
 
     const fullReplacement =
-      delimiters.open + ' ns__start_replacement ' + location + delimiters.close +
+      delimiters.open + ` ns__start_replacement ${location} ` + delimiters.close +
       replacedCode[location] +
       delimiters.open + ` ns__end_replacement ${location} ` + delimiters.close
     return fullReplacement
