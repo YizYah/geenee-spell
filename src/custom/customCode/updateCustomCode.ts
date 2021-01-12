@@ -62,8 +62,13 @@ export async function updateCustomCode(
     console.error(error)
   }
 
-  await Promise.all(Object.keys(customCodeByFile).map(async relativePath => {
+  const fileList = Object.keys(customCodeByFile)
+  let i=0
+  for (i = 0; i < fileList.length; i++) {
+    const relativePath = fileList[i]
+
     const filePath = `${rootDir}/${relativePath}`
+
     try {
       if (await fs.pathExists(filePath)) {
         await updateCustomCodeForFile(
@@ -72,7 +77,7 @@ export async function updateCustomCode(
       } else {
         // eslint-disable-next-line no-console
         console.log(`***WARNING*** the file ${relativePath} does not exist ` +
-                    'but has custom code in your current version.  That could be caused ' +
+          'but has custom code in your current version.  That could be caused ' +
           'by changing your settings if you removed something that should have been' +
           'generated to that file.  Another possibility is that ' +
           'the file was moved to a wrong location.  That problem would have been caught by ' +
@@ -82,5 +87,28 @@ export async function updateCustomCode(
     } catch (error) {
       throw new Error(`couldn't update ${filePath}. rootDir=${rootDir}.`)
     }
-  }))
+
+  }
+
+  // await Promise.all(Object.keys(customCodeByFile).map(async relativePath => {
+  //   const filePath = `${rootDir}/${relativePath}`
+  //   try {
+  //     if (await fs.pathExists(filePath)) {
+  //       await updateCustomCodeForFile(
+  //         filePath, customCodeByFile[relativePath], config
+  //       )
+  //     } else {
+  //       // eslint-disable-next-line no-console
+  //       console.log(`***WARNING*** the file ${relativePath} does not exist ` +
+  //                   'but has custom code in your current version.  That could be caused ' +
+  //         'by changing your settings if you removed something that should have been' +
+  //         'generated to that file.  Another possibility is that ' +
+  //         'the file was moved to a wrong location.  That problem would have been caught by ' +
+  //         'running `check` before running `generate`.')
+  //       // throw new Error(`can't find file for ${filePath}`)
+  //     }
+  //   } catch (error) {
+  //     throw new Error(`couldn't update ${filePath}. rootDir=${rootDir}.`)
+  //   }
+  // }))
 }

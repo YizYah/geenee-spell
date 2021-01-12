@@ -65,7 +65,6 @@ export async function storeCustomCodeForFile(
     const location: string = match[1]
 
     let contents = match[2]
-    // console.log(`match found: ${match}... unit: ${unit} component: ${component} location: ${location} contents: ${contents}`)
 
     if (!contents || contents === '') contents = ' '
 

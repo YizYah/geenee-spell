@@ -47,6 +47,7 @@ ${error}`)
   const paths = walk.sync(standardDir, {return_object: true})
   await Promise.all(Object.keys(paths).map(async pathString => {
     const stat = paths[pathString]
+
     const localPath = pathString.replace(standardDir, '')
     if (localPath in standardIgnored) return
 

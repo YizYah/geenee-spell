@@ -9,8 +9,10 @@ import execa = require('execa');
 import {fs} from './updateCustomCodeForFile'
 import {Configuration} from 'magicalstrings'
 
-async function updateCode(fileName: string,
-  sedString: string,) {
+async function updateCode(
+  fileName: string,
+  sedString: string,
+) {
   await execa('sed',
     ['-i', '-e ' + sedString, fileName],).catch((error: any) => {
     throw new Error(`${chalk.red('error inserting added code.')} Here is the error reported:\n${error}`)
@@ -40,7 +42,6 @@ export const insertCustomChanges = async (
   const baseDir = path.resolve(process.cwd(), rootDir)
 
   const existsComponents = await fs.pathExists(addedCodeDoc)
-  // console.log(`existsComponents=${existsComponents}`)
 
   let customCode: CustomCodeRepository = {
     addedCode: {},
@@ -66,7 +67,8 @@ export const insertCustomChanges = async (
     return
   }
 
+  // TODO: decide whether I want to do this
   await updateRemovedImports(customCode, rootDir)
 
-  await Promise.all(Object.keys(customCode.addedCode))
+  // await Promise.all(Object.keys(customCode.addedCode))
 }
