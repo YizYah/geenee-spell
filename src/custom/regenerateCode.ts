@@ -1,13 +1,13 @@
 const {dirNames, fileNames, suffixes} = require('magicalstrings').constants
 const {getNsInfo} = require('magicalstrings').nsFiles
 const {getConfig} = require('magicalstrings').configs
-import {storeCustomCode} from './storeCustomCode/storeCustomCode'
+const {storeCustomCode, insertCustomCode} = require('custom-jeans')
+// import {storeCustomCode} from './customCode/storeCustomCode/storeCustomCode'
 
 const {copyCodeBaseToNewDir} = require('magicalstrings').copyCodeBaseToNewDir
 // import {ensureIgnoredExist} from '../check/ensureIgnoredExist'
 const {moveOverIgnored} = require('magicalstrings').moveOverIgnored
 import {generateCode} from './generateCode'
-import {insertCustomChanges} from './customCode/insertCustomChanges'
 import {updatePackageJson} from './packageJson/updatePackageJson'
 import {createSpecElement} from './specs/specCreation/createSpecElement'
 import {getPackageInfoJson} from './packageJson/getPackageInfoJson'
@@ -106,7 +106,7 @@ export async function regenerateCode(
 
   try {
     const customCodeDoc = `${metaDir}/${fileNames.CUSTOM_CODE_FILE}`
-    await insertCustomChanges(
+    await insertCustomCode(
       codeDir, customCodeDoc, config
     )
 
