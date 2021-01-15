@@ -51,24 +51,13 @@ export async function regenerateCode(
     'You need a starter to generate code.')
 
   try {
-    // checkForUpdates()
-
     const {general} = config
     let generalSettings = nsInfo.general || {}
 
     if (Object.keys(generalSettings).length === 0) generalSettings = await createSpecElement(general, session)
     nsInfo.general = generalSettings
     await setNsInfo(codeDir, nsInfo)
-
-    // if (customCodeJson) {
-    //   const customCodeFile = `${metaDir}/${fileNames.CUSTOM_CODE_FILE}`
-    //   await fs.writeJson(
-    //     customCodeFile, customCodeJson, {spaces: 2}
-    //   )
-    // } else {
-    // no json provided, so you call with your own.
     await storeCustomCode(sourceCodeDir, config)
-    // }
 
     // replace the backup
     await fs.remove(backupDir)
@@ -103,13 +92,16 @@ export async function regenerateCode(
 
   await new Promise(r => setTimeout(r, 1000))
 
-
   try {
     const customCodeDoc = `${metaDir}/${fileNames.CUSTOM_CODE_FILE}`
     await insertCustomCode(
       codeDir, customCodeDoc, config
     )
+  } catch (error) {
+    throw new Error(`could not insert custom code: ${error}`)
+  }
 
+  try {
     const stackInfo: Schema = await buildSchema(nsInfo, config)
     const packageInfoJson = await getPackageInfoJson(
       templateDir,
@@ -118,10 +110,12 @@ export async function regenerateCode(
       stackInfo,
       config,
     )
+    console.log('running locally')
     await updatePackageJson(
       codeDir, starter, packageInfoJson
     )
   } catch (error) {
-    throw new Error(`could not insert custom changes: ${error}`)
+    throw new Error(`could not build json: ${error}`)
   }
+
 }

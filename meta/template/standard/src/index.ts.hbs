@@ -6,6 +6,10 @@ export * from './types/{{slug}}'
 {{/each}}
 
 {{#if nsInfo.general.multi}}
+    {{customStart export}}
+    // replace this with your own export
+    module.exports = "hello world"
+    {{customEnd export}}
 /* constants */
 {{#each nsInfo.static.grouping}}
 
@@ -14,6 +18,6 @@ export * from './types/{{slug}}'
 {{else}}
 {{customStart export}}
 // replace this with your own export
-export "hello world"
+module.exports = "hello world"
 {{customEnd export}}
 {{/if}}
