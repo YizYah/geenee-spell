@@ -7,26 +7,31 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "/bin",
-    "/lib",
-    "/npm-shrinkwrap.json",
-    "/oclif.manifest.json"
+    "lib/**/*"
   ],
   "homepage": "https://github.com/{{general.owner}}/{{general.repositoryName}}",
   "keywords": [
-    "oclif"
+    "ts-packrat"
   ],
   "license": "{{general.license}}",
-  "main": "lib/index.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "repository": "{{general.owner}}/{{general.repositoryName}}",
   "scripts": {
-    "lint": "eslint . --ext .ts --config .eslintrc",
-    "lintfix": "eslint . --ext .ts --config .eslintrc --fix",
-    "postpack": "rm -f oclif.manifest.json",
-    "posttest": "eslint . --ext .ts --config .eslintrc",
-    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
-    "test": "nyc --extension .ts mocha --forbid-only \"test/**/*.test.ts\"",
-    "version": "oclif-dev readme && git add README.md"
+    "build": "tsc",
+    "lint": "eslint \"src/**/*.ts\"",
+    "lintfix": "eslint \"src/**/*.ts\" --fix",
+    "test": "ava",
+    "posttest": "eslint \"src/**/*.ts\"",
+    "prepack": "rm -rf lib && tsc -b"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
 }

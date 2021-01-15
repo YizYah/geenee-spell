@@ -7,11 +7,13 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint \"src/**/*.ts\"",
-    "test": "eslint \"src/**/*.ts\""
+    "lintfix": "eslint \"src/**/*.ts\" --fix",
+    "test": "ava",
+    "posttest": "eslint \"src/**/*.ts\"",
+    "prepack": "rm -rf lib && tsc -b"
   },
   "keywords": [
-    "packrat",
-    "geenee"
+    "ts-packrat"
   ],
   "author": "YizYah",
   "license": "MIT",
@@ -38,16 +40,27 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
+    "ava": "^3.15.0",
     "eslint": "^7.17.0",
-    "prettier": "^2.2.1"
+    "nyc": "^14.1.1",
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1"
   },
   "bugs": "https://github.com/YizYah/geenee-spell/issues",
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
-    "/lib"
+    "lib/**/*"
   ],
   "homepage": "https://github.com/YizYah/geenee-spell",
-  "repository": "YizYah/geenee-spell"
+  "repository": "YizYah/geenee-spell",
+  "ava": {
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
 }

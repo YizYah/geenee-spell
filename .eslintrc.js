@@ -1,3 +1,4 @@
+/* ns__file unit: standard, comp: .eslintrc.js */
 module.exports = {
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -12,8 +13,6 @@ module.exports = {
         "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/ban-types": "off",
         "@typescript-eslint/no-explicit-any":"off",
-        "@typescript-eslint/ban-ts-comment": "off",
-        "no-console": 1
-
+        "@typescript-eslint/ban-ts-comment": "off"
     }
 }

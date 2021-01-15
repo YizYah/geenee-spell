@@ -39,14 +39,34 @@ You probably won't need to use this package directly.  It gets included by geene
 
 [//]: # ( ns__start_section api )
 
-# API
 
-## General Constants and Commands
+[//]: # ( ns__custom_start APIIntro )
+# Usage
+Install 
+```
+npm i geenee-spell
+```
+Then you can generate code by specifying a package.  The simplest usage is like this:
+```
+const generateCode = require('geenee-spell')
+
+(async () => {
+	await generateCode('~/packages/myPackage', {}, null)
+})();
+```
+[//]: # ( ns__custom_end APIIntro )
+
+
+[//]: # ( ns__custom_start constantsIntro )
+
+[//]: # ( ns__custom_end constantsIntro )
 
 
 
-## Types
-The following interfaces are exposed by geenee-spell.
+[//]: # ( ns__start_section types )
+
+
+[//]: # ( ns__end_section types )
 
 
 [//]: # ( ns__end_section api )
