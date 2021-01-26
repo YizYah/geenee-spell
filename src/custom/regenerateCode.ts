@@ -110,7 +110,6 @@ export async function regenerateCode(
       stackInfo,
       config,
     )
-    console.log('running locally')
     await updatePackageJson(
       codeDir, starter, packageInfoJson
     )
