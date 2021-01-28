@@ -10,7 +10,7 @@
 [//]: # ( ns__start_section intro )
 
 [//]: # ( ns__custom_start description )
-regenerates code in a project` based upon a template and a settings file.
+regenerates code in a project based upon a template and a settings file.
 
 [//]: # ( ns__custom_end description )
 
