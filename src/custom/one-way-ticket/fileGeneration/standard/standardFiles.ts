@@ -1,11 +1,11 @@
 const {standardIgnored} = require('magicalstrings').constants
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
-import {contextForStandard} from '../handlebars/context/contextForStandard'
-import {loadFileTemplate} from '../loadFileTemplate'
-import {registerHelpers} from '../handlebars/registerHelpers'
-import {registerPartials} from '../handlebars/registerPartials'
-import {replaceCommentDelimiters} from './replaceCommentDelimiters'
+import {contextForStandard} from './contextForStandard'
+import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
+import {registerHelpers} from '../../handlebars/registerHelpers'
+import {registerPartials} from '../../handlebars/registerPartials'
+import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 const getConfig = require('magicalstrings').configs.getConfig
 const {fileOptions} = require('magicalstrings').constants.fileOptions
 

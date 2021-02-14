@@ -12,4 +12,6 @@ general:
   repositoryName: geenee-spell
   license: MIT
   multi: false
-  description: regenerates project code based upon settings and a template
+  description: regenerates code based upon settings and a template
+static:
+  grouping: {}

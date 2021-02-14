@@ -7,12 +7,12 @@ const {storeCustomCode, insertCustomCode} = require('custom-jeans')
 const {copyCodeBaseToNewDir} = require('magicalstrings').copyCodeBaseToNewDir
 // import {ensureIgnoredExist} from '../check/ensureIgnoredExist'
 const {moveOverIgnored} = require('magicalstrings').moveOverIgnored
-import {generateCode} from './generateCode'
-import {updatePackageJson} from './packageJson/updatePackageJson'
+import {generateCode} from './one-way-ticket/generateCode'
+// import {updatePackageJson} from './one-way-ticket/packageJson/updatePackageJson'
 import {createSpecElement} from './specs/specCreation/createSpecElement'
-import {getPackageInfoJson} from './packageJson/getPackageInfoJson'
+// import {getPackageInfoJson} from './one-way-ticket/packageJson/getPackageInfoJson'
 import {Schema} from 'magicalstrings'
-import {buildSchema} from './schema/buildSchema'
+// import {buildSchema} from './one-way-ticket/schema/buildSchema'
 
 const fs = require('fs-extra')
 const {setNsInfo} = require('magicalstrings').nsFiles
@@ -84,7 +84,7 @@ export async function regenerateCode(
 
   try {
     await generateCode(
-      codeDir, nsInfo, config
+      codeDir, nsInfo, config, templateDir
     )
   } catch (error) {
     throw new Error(`could not regenerate the code: ${error}`)
@@ -101,20 +101,20 @@ export async function regenerateCode(
     throw new Error(`could not insert custom code: ${error}`)
   }
 
-  try {
-    const stackInfo: Schema = await buildSchema(nsInfo, config)
-    const packageInfoJson = await getPackageInfoJson(
-      templateDir,
-      codeDir,
-      nsInfo,
-      stackInfo,
-      config,
-    )
-    await updatePackageJson(
-      codeDir, starter, packageInfoJson
-    )
-  } catch (error) {
-    throw new Error(`could not build json: ${error}`)
-  }
+  // try {
+  //   // const stackInfo: Schema = await buildSchema(nsInfo, config)
+  //   const packageInfoJson = await getPackageInfoJson(
+  //     templateDir,
+  //     codeDir,
+  //     nsInfo,
+  //     // stackInfo,
+  //     config,
+  //   )
+  //   await updatePackageJson(
+  //     codeDir, starter, packageInfoJson
+  //   )
+  // } catch (error) {
+  //   throw new Error(`could not build json: ${error}`)
+  // }
 
 }

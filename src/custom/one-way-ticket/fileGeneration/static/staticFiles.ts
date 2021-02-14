@@ -1,12 +1,12 @@
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
-import {loadFileTemplate} from '../loadFileTemplate'
-import {registerHelpers} from '../handlebars/registerHelpers'
-import {registerPartials} from '../handlebars/registerPartials'
+import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
+import {registerHelpers} from '../../handlebars/registerHelpers'
+import {registerPartials} from '../../handlebars/registerPartials'
 import {Configuration} from 'magicalstrings'
 const {placeholders} = require('magicalstrings').constants
-import {contextForStatic} from '../handlebars/context/contextForStatic'
-import {replaceCommentDelimiters} from './replaceCommentDelimiters'
+import {contextForStatic} from './contextForStatic'
+import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 
 const fs = require('fs-extra')
 

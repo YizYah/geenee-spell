@@ -1,11 +1,12 @@
-import {registerPartials} from '../handlebars/registerPartials'
-import {registerHelpers} from '../handlebars/registerHelpers'
-import {loadFileTemplate} from '../loadFileTemplate'
+import {registerPartials} from '../../handlebars/registerPartials'
+import {registerHelpers} from '../../handlebars/registerHelpers'
+import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
 const {fileNames} = require('magicalstrings').constants
-import {contextForStandard} from '../handlebars/context/contextForStandard'
+import {contextForStandard} from '../standard/contextForStandard'
 import {NsInfo}  from 'magicalstrings'
 import {Schema} from 'magicalstrings'
 import {Configuration} from 'magicalstrings'
+import {ActionsByActionType, Sources, Types, UserClasses} from 'magicalstrings/lib/exports/constants/types/schema'
 
 const fs = require('fs-extra')
 
@@ -13,7 +14,7 @@ export async function getPackageInfoJson(
   templateDir: string,
   codeDir: string,
   nsInfo: NsInfo,
-  stackInfo: Schema,
+  // stackInfo: Schema,
   config: Configuration,
 ) {
   const packageInfoJsonFile = `${templateDir}/general/${fileNames.PACKAGE_INFO}`
@@ -27,6 +28,14 @@ export async function getPackageInfoJson(
 It may be that the template location is faulty, or that the template is not
 correctly specified:
 ${error}`)
+  }
+
+  const emptyStackInfo: Schema = {
+    topSource: '',
+    userClasses: {},
+    sources: {},
+    types: {},
+    actions: {},
   }
 
   try {
@@ -46,7 +55,7 @@ ${error}`)
 
   const fileText = await fileTemplate(await contextForStandard(
     nsInfo,
-    stackInfo,
+    emptyStackInfo,
     'package.json',
     codeDir,
     config,

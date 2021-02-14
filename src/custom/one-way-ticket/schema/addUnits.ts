@@ -1,4 +1,4 @@
-import {newUnit} from  './newUnit'
+import {newUnit} from './newUnit'
 import {Configuration, Schema, Units} from 'magicalstrings'
 
 export function addUnits(

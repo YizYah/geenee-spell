@@ -4,11 +4,11 @@ const fs = require('fs-extra')
 
 import {NsInfo}  from 'magicalstrings'
 const {allCaps} = require('magicalstrings').inflections
-import {loadFileTemplate} from '../loadFileTemplate'
+import {loadFileTemplate} from '../../handlebars/loadFileTemplate'
 const {parseSpecName} = require('magicalstrings').constants.parseSpecName
-import {unitNameFromSpec} from './unitNameFromSpec'
+import {unitNameFromSpec} from '../unitNameFromSpec'
 const {dirNames} = require('magicalstrings').constants
-import {replaceCommentDelimiters} from './replaceCommentDelimiters'
+import {replaceCommentDelimiters} from '../delimiters/replaceCommentDelimiters'
 
 export async function dynamicFiles(
   config: Configuration, nsInfo: NsInfo, codeDir: string

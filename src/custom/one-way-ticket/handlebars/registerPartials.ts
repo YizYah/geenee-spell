@@ -1,4 +1,4 @@
-import {expandNsAbbreviations} from '../expandNsbbreviations'
+import {expandNsAbbreviations} from './expandNsbbreviations'
 
 const path = require('path')
 const Handlebars = require('handlebars')

@@ -1,6 +1,6 @@
 import {NsInfo, BackendIdList} from 'magicalstrings'
 import {Schema} from 'magicalstrings'
-import {createGeneralInfo} from './createGeneralInfo'
+import {createGeneralInfo} from '../createGeneralInfo'
 import {Configuration} from 'magicalstrings'
 
 const {dataTypes, nodeTypes, magicStrings, links} = require('magicalstrings').constants

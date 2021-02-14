@@ -1,11 +1,11 @@
-import {contextForDynamic} from '../../handlebars/context/contextForDynamic'
-import {loadFileTemplate} from '../../loadFileTemplate'
-import {makeDirs} from '../makeDirs'
-import {registerHelpers} from '../../handlebars/registerHelpers'
-import {registerPartials} from '../../handlebars/registerPartials'
+import {contextForDynamic} from '../contextForDynamic'
+import {loadFileTemplate} from '../../../handlebars/loadFileTemplate'
+import {makeDirs} from '../../makeDirs'
+import {registerHelpers} from '../../../handlebars/registerHelpers'
+import {registerPartials} from '../../../handlebars/registerPartials'
 import {componentName} from './componentName'
 import {BoilerPlateInfoType, Configuration, NsInfo, Schema} from 'magicalstrings'
-import {replaceCommentDelimiters} from '../replaceCommentDelimiters'
+import {replaceCommentDelimiters} from '../../delimiters/replaceCommentDelimiters'
 
 const Handlebars = require('handlebars')
 const H = require('just-handlebars-helpers')

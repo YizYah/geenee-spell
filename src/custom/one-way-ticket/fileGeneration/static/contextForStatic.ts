@@ -1,7 +1,7 @@
 import {Configuration} from 'magicalstrings'
 import {NsInfo}  from 'magicalstrings'
 const {pluralLowercaseName, pluralName, singularName} = require('magicalstrings').inflections
-import {createGeneralInfo} from './createGeneralInfo'
+import {createGeneralInfo} from '../createGeneralInfo'
 const {links} = require('magicalstrings').constants
 
 const Handlebars = require('handlebars')

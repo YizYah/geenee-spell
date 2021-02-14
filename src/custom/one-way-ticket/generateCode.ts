@@ -1,11 +1,14 @@
+import {getPackageInfoJson} from './fileGeneration/packageJson/getPackageInfoJson'
+
 const {dirNames, fileNames} = require('magicalstrings').constants
 import {Configuration, NsInfo, Schema} from 'magicalstrings'
 import {configuredDirs} from './fileGeneration/configuredDirs'
-import {dynamicFiles} from './fileGeneration/dynamicFiles'
+import {dynamicFiles} from './fileGeneration/dynamic/dynamicFiles'
+import {standardFiles} from './fileGeneration/standard/standardFiles'
+import {staticFiles} from './fileGeneration/static/staticFiles'
+import {generateAppTypeFiles} from './fileGeneration/dynamic/components/generateAppTypeFiles'
 import {buildSchema} from './schema/buildSchema'
-import {standardFiles} from './fileGeneration/standardFiles'
-import {staticFiles} from './fileGeneration/staticFiles'
-import {generateAppTypeFiles} from './fileGeneration/dynamicComponents/generateAppTypeFiles'
+import {updatePackageJson} from './fileGeneration/packageJson/updatePackageJson'
 
 // const fs = require('fs-extra')
 
@@ -13,6 +16,7 @@ export async function generateCode(
   codeDir: string,
   nsInfo: NsInfo,
   config: Configuration,
+  templateDir: string,
   // jsonPath: string,
 ) {
   const {userClass, units, starter} = nsInfo
@@ -24,8 +28,8 @@ export async function generateCode(
   // console.log(`stacklocation=${codeDir}/stack.json`)
   // const stackInfo: Schema = await fs.readJSON(jsonPath) // await generateJSON.bind(this)(template, codeDir)
 
-  const metaDir = `${codeDir}/${dirNames.META}`
-  const templateDir = `${metaDir}/${dirNames.TEMPLATE}`
+  // const metaDir = `${codeDir}/${dirNames.META}`
+  // const templateDir = `${metaDir}/${dirNames.TEMPLATE}`
 
   try {
     // WARNING: breaking change from 1.6.8!!
@@ -84,6 +88,23 @@ export async function generateCode(
   } catch (error) {
     throw error
   }
+
+  try {
+    // const stackInfo: Schema = await buildSchema(nsInfo, config)
+    const packageInfoJson = await getPackageInfoJson(
+      templateDir,
+      codeDir,
+      nsInfo,
+      // stackInfo,
+      config,
+    )
+    await updatePackageJson(
+      codeDir, starter, packageInfoJson
+    )
+  } catch (error) {
+    throw new Error(`could not build json: ${error}`)
+  }
+
 
   // // '--end-of-line auto',
   // // '--trailing-comma es5',
