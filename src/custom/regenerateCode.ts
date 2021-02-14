@@ -7,7 +7,7 @@ const {storeCustomCode, insertCustomCode} = require('custom-jeans')
 const {copyCodeBaseToNewDir} = require('magicalstrings').copyCodeBaseToNewDir
 // import {ensureIgnoredExist} from '../check/ensureIgnoredExist'
 const {moveOverIgnored} = require('magicalstrings').moveOverIgnored
-import {generateCode} from './one-way-ticket/generateCode'
+// import {generateCode} from './one-way-ticket/generateCode'
 // import {updatePackageJson} from './one-way-ticket/packageJson/updatePackageJson'
 import {createSpecElement} from './specs/specCreation/createSpecElement'
 // import {getPackageInfoJson} from './one-way-ticket/packageJson/getPackageInfoJson'
@@ -16,6 +16,7 @@ import {Schema} from 'magicalstrings'
 
 const fs = require('fs-extra')
 const {setNsInfo} = require('magicalstrings').nsFiles
+const generateCode = require('one-way-ticket')
 
 export async function regenerateCode(
   codeDir: string, session: any, sourceLocation: any
