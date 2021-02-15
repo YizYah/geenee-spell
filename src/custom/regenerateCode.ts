@@ -2,21 +2,14 @@ const {dirNames, fileNames, suffixes} = require('magicalstrings').constants
 const {getNsInfo} = require('magicalstrings').nsFiles
 const {getConfig} = require('magicalstrings').configs
 const {storeCustomCode, insertCustomCode} = require('custom-jeans')
-// import {storeCustomCode} from './customCode/storeCustomCode/storeCustomCode'
 
 const {copyCodeBaseToNewDir} = require('magicalstrings').copyCodeBaseToNewDir
-// import {ensureIgnoredExist} from '../check/ensureIgnoredExist'
 const {moveOverIgnored} = require('magicalstrings').moveOverIgnored
-// import {generateCode} from './one-way-ticket/generateCode'
-// import {updatePackageJson} from './one-way-ticket/packageJson/updatePackageJson'
 import {createSpecElement} from './specs/specCreation/createSpecElement'
-// import {getPackageInfoJson} from './one-way-ticket/packageJson/getPackageInfoJson'
-import {Schema} from 'magicalstrings'
-// import {buildSchema} from './one-way-ticket/schema/buildSchema'
 
 const fs = require('fs-extra')
 const {setNsInfo} = require('magicalstrings').nsFiles
-const generateCode = require('one-way-ticket')
+const generateCode = require('geenee-rate')
 
 export async function regenerateCode(
   codeDir: string, session: any, sourceLocation: any
