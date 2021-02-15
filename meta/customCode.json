@@ -3,19 +3,21 @@
     "standard": {
       ".gitignore": {
         "path": ".gitignore",
-        "extra": "\n"
+        "extra": "\n.idea\n"
       },
       "README.md": {
         "path": "README.md",
         "beginning": "\n\n![geenee-spell](src/custom/images/geenee-spell.gif)\n",
         "description": "\nregenerates code in a project` based upon a template and a settings file.\n",
         "afterDescription": "\n",
-        "badges": "\n\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/geenee-spell.svg)](https://npmjs.org/package/geenee-spell)\n[![Downloads/week](https://img.shields.io/npm/dw/geenee-spell.svg)](https://npmjs.org/package/geenee-spell)\n[![License](https://img.shields.io/npm/l/geenee-spell.svg)](https://github.com/YizYah/geenee-spell/blob/master/package.json)\n\n\nA [geenee](https://www.npmjs.com/package/geenee) code base contains a `meta` directory, which should have a `template` and a settings file called `ns.yml`.  This package exposes a single async function that can regenerate the whole code base from scratch when your template and/or settings have changed.\n\nYou probably won't need to use this package directly.  It gets included by geenee and [copykat](https://www.npmjs.com/package/copykat). \n"
+        "badges": "\n\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/geenee-spell.svg)](https://npmjs.org/package/geenee-spell)\n[![Downloads/week](https://img.shields.io/npm/dw/geenee-spell.svg)](https://npmjs.org/package/geenee-spell)\n[![License](https://img.shields.io/npm/l/geenee-spell.svg)](https://github.com/YizYah/geenee-spell/blob/master/package.json)\n\n\nA [geenee](https://www.npmjs.com/package/geenee) code base contains a `meta` directory, which should have a `template` and a settings file called `ns.yml`.  This package exposes a single async function that can regenerate the whole code base from scratch when your template and/or settings have changed.\n\nYou probably won't need to use this package directly.  It gets included by geenee and [copykat](https://www.npmjs.com/package/copykat). \n",
+        "APIIntro": "\n# Usage\nInstall \n```\nnpm i geenee-spell\n```\nThen you can generate code by specifying a package.  The simplest usage is like this:\n```\nconst generateCode = require('geenee-spell')\n\n(async () => {\n\tawait generateCode('~/packages/myPackage', {}, null)\n})();\n```",
+        "constantsIntro": "\n"
       },
       "src/index.ts": {
         "path": "src/index.ts",
-        "beginning": "\n",
-        "export": "\n// replace this with your own export\nmodule.exports = \"hello world\"\n"
+        "beginning": "\nimport { regenerateCode } from './custom/regenerateCode';\n",
+        "export": "\nmodule.exports = regenerateCode\n"
       },
       "test/index.test.ts": {
         "path": "test/index.test.ts",
