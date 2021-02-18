@@ -1,6 +1,6 @@
 {
   "name": "geenee-spell",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "regenerates project code based upon settings and a template",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
