@@ -20,7 +20,7 @@
   "dependencies": {
     "custom-jeans": "0.0.2",
     "fs-extra": "^9.0.1",
-    "geenee-rate": "^0.0.4",
+    "geenee-rate": "0.0.5",
     "inquirer": "^7.3.3",
     "magicalstrings": "0.0.13",
     "typescript": "^4.1.3"
