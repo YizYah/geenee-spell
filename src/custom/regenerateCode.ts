@@ -12,7 +12,7 @@ const {setNsInfo} = require('magicalstrings').nsFiles
 const generateCode = require('geenee-rate')
 
 export async function regenerateCode(
-  codeDir: string, session: any, sourceLocation: any
+  codeDir: string, session: any, sourceLocation: string|null
 ) {
   const sourceCodeDir = sourceLocation || codeDir
 
@@ -78,7 +78,7 @@ export async function regenerateCode(
 
   try {
     await generateCode(
-      codeDir, nsInfo, config, templateDir
+      codeDir, nsInfo, config, templateDir, false
     )
   } catch (error) {
     throw new Error(`could not regenerate the code: ${error}`)
