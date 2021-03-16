@@ -1,0 +1,8 @@
+userClass: user
+codeName: MyApp
+template:
+  dir: /home/yisroel/packages/packrat-ts-all/packrat
+  name: null
+  version: 1
+starter: >-
+  /home/yisroel/packages/geenee-spell-all/geenee-spell/test/custom/sampleCode.starter

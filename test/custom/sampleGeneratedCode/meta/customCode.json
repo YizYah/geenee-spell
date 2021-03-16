@@ -1,0 +1,34 @@
+{
+  "addedCode": {
+    "standard": {
+      ".eslintrc.js": {
+        "path": ".eslintrc.js",
+        "lintRules": "\n        \"no-console\": [\"error\"],\n        \"@typescript-eslint/no-var-requires\": \"off\",\n        \"@typescript-eslint/explicit-module-boundary-types\": \"off\",\n        \"@typescript-eslint/ban-types\": \"off\",\n        \"@typescript-eslint/no-explicit-any\":\"off\",\n        \"@typescript-eslint/ban-ts-comment\": \"off\"\n        "
+      },
+      ".gitignore": {
+        "path": ".gitignore",
+        "extra": "\n"
+      },
+      ".nycrc.yml": {
+        "path": ".nycrc.yml",
+        "testCoverageThresholds": "\ncheck-coverage: true\nbranches: 50\nlines: 60\nfunctions: 40\nstatements: 60\n"
+      },
+      "README.md": {
+        "path": "README.md",
+        "beginning": "\n",
+        "description": "\nfoo\n======\n\n",
+        "afterDescription": "\n",
+        "badges": "\n\n[//]: # ( ns__start_section usageSection )\n\n[![Version](https://img.shields.io/npm/v/foo.svg)](https://npmjs.org/package/foo)\n[![Downloads/week](https://img.shields.io/npm/dw/foo.svg)](https://npmjs.org/package/foo)\n[![License](https://img.shields.io/npm/l/foo.svg)](https://github.com/YizYah/foo/blob/master/package.json)\n\n[![Geenee](https://img.shields.io/badge/maintained%20by-geenee-brightgreen)](https://npmjs.org/package/geenee)\n[![Template](https://img.shields.io/badge/template-ts--packrat-blue)](https://npmjs.org/package/ts-packrat)\n",
+        "APIIntro": "\n# API\n",
+        "constantsIntro": "\n## General Constants and Commands\n"
+      },
+      "src/index.ts": {
+        "path": "src/index.ts",
+        "beginning": "\n",
+        "export": "\n    // replace this with your own export\n    module.exports = \"hello world\"\n    "
+      }
+    }
+  },
+  "replacedCode": {},
+  "removedCode": {}
+}

@@ -1,0 +1,57 @@
+{
+  ".eslintrc.js": {
+    "unit": "standard",
+    "comp": ".eslintrc.js",
+    "addedCode": {
+      "lintRules": "\n        \"no-console\": [\"error\"],\n        \"@typescript-eslint/no-var-requires\": \"off\",\n        \"@typescript-eslint/explicit-module-boundary-types\": \"off\",\n        \"@typescript-eslint/ban-types\": \"off\",\n        \"@typescript-eslint/no-explicit-any\":\"off\",\n        \"@typescript-eslint/ban-ts-comment\": \"off\"\n        "
+    },
+    "replacedCode": {},
+    "removedCode": {}
+  },
+  ".gitignore": {
+    "unit": "standard",
+    "comp": ".gitignore",
+    "addedCode": {
+      "extra": "\n"
+    },
+    "replacedCode": {},
+    "removedCode": {}
+  },
+  ".nycrc.yml": {
+    "unit": "standard",
+    "comp": ".nycrc.yml",
+    "addedCode": {
+      "testCoverageThresholds": "\ncheck-coverage: true\nbranches: 50\nlines: 60\nfunctions: 40\nstatements: 60\n"
+    },
+    "replacedCode": {},
+    "removedCode": {}
+  },
+  "README.md": {
+    "unit": "standard",
+    "comp": "README.md",
+    "addedCode": {
+    },
+    "replacedCode": {},
+    "removedCode": {}
+  },
+  "src/index.ts": {
+    "unit": "standard",
+    "comp": "src/index.ts",
+    "addedCode": {
+      "beginning": "\nconst {temp} = require('./custom/temp')\n",
+      "export": "\n    // replace this with your own export\n    module.exports = temp\n    "
+    },
+    "replacedCode": {},
+    "removedCode": {}
+  },
+  "test/index.test.ts": {
+    "unit": "standard",
+    "comp": "test/index.test.ts",
+    "addedCode": {
+      "customImports": "\n",
+      "general": "\ntest('general', t => {\n  // replace with whatever you'd like.  To start over with the default, remove everything including the\n});\n"
+    },
+    "replacedCode": {},
+    "removedCode": {}
+  }
+}
