@@ -6,11 +6,14 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "commit": "git-cz",
     "lint": "eslint \"src/**/*.ts\"",
     "lintfix": "eslint \"src/**/*.ts\" --fix",
     "test": "ava",
-    "posttest": "eslint \"src/**/*.ts\"",
-    "prepack": "rm -rf lib && tsc -b"
+    "posttest": "npm run view-coverage && npm run report && npm run lint",
+    "prepack": "rm -rf lib && tsc -b",
+    "report": "nyc report --reporter=json",
+    "view-coverage": "nyc --extension .ts ava --forbid-only"
   },
   "keywords": [
     "ts-packrat"
@@ -21,7 +24,7 @@
     "custom-jeans": "0.0.5",
     "dynamapping": "^1.6.0",
     "fs-extra": "^9.0.1",
-    "geenee-rate": "^0.1.7",
+    "geenee-rate": "^0.1.10",
     "head-starter": "^1.1.5",
     "inquirer": "^7.3.3",
     "magicalstrings": "0.0.14",
@@ -32,9 +35,14 @@
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
     "ava": "^3.15.0",
-    "eslint": "^7.17.0",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.2.0",
+    "eslint": "^7.22.0",
+    "ghooks": "^2.0.4",
+    "mock-fs": "^4.13.0",
     "nyc": "^14.1.1",
     "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2",
     "ts-node": "^9.1.1"
   },
   "bugs": "https://github.com/YizYah/geenee-spell/issues",
@@ -47,11 +55,22 @@
   "homepage": "https://github.com/YizYah/geenee-spell",
   "repository": "YizYah/geenee-spell",
   "ava": {
+    "files": [
+      "test/**/*.test.ts"
+    ],
     "extensions": [
       "ts"
     ],
     "require": [
       "ts-node/register"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
+    }
   }
 }

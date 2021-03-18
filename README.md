@@ -23,6 +23,7 @@ regenerates code in a project based upon a template and a settings file.
 
 [//]: # ( ns__start_section usageSection )
 
+[![codecov](https://codecov.io/gh/YizYah/geenee-spell/branch/main/graph/badge.svg?token=DF6B2CCSUP)](https://codecov.io/gh/YizYah/geenee-spell)
 [![Version](https://img.shields.io/npm/v/geenee-spell.svg)](https://npmjs.org/package/geenee-spell)
 [![Downloads/week](https://img.shields.io/npm/dw/geenee-spell.svg)](https://npmjs.org/package/geenee-spell)
 [![License](https://img.shields.io/npm/l/geenee-spell.svg)](https://github.com/YizYah/geenee-spell/blob/master/package.json)

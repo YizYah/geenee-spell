@@ -1,0 +1,46 @@
+{
+  "name": "{{general.packageName}}",
+  "description": "{{general.description}}",
+  "author": "{{general.author}}",
+  "bugs": "https://github.com/{{general.owner}}/{{general.repositoryName}}/issues",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "homepage": "https://github.com/{{general.owner}}/{{general.repositoryName}}",
+  "keywords": [
+    "ts-packrat",
+    "geenee"
+  ],
+  "license": "{{general.license}}",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": "{{general.owner}}/{{general.repositoryName}}",
+  "scripts": {
+    "build": "template build script",
+    "commit": "git-cz",
+    "view-coverage": "nyc --extension .ts ava --forbid-only"
+  },
+  "types": "lib/index.d.ts",
+  "ava": {
+    "files": [
+      "test/**/*.test.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
+    }
+  }
+}
