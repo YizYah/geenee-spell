@@ -23,7 +23,6 @@ const path = require('path')
     * extra files in the starter should be copied over
     * ignored items are properly overwritten by the user version
     * an ignored item not included in the user version is created
-    * specifically, packages get copied over in node_modules
     * new package.json gets added
     * additions to devs get added
     * lower versions of devs in starter are ignored
@@ -120,9 +119,6 @@ test('check Config', async t => {
   // * extra files in the starter should be copied over
   t.true(await fs.pathExists(SAMPLE_CODE + '/extraStarterFile.txt'))
 
-
-  // * packages get copied over in node_modules
-  t.true(await fs.pathExists(SAMPLE_CODE + '/node_modules/cogs-box'))
 
   //TODO
   // * ignored items are properly overwritten by the user version
