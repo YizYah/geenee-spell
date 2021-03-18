@@ -1,0 +1,20 @@
+{
+  "name": "fooBar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "userMain",
+  "newUserAddedKey": "peace",
+  "scripts": {
+    "build": "userVersion",
+    "fake": "addedByMe",
+    "test": "exit 1"
+  },
+  "dependencies": {
+    "barbells": "^1.0.1",
+    "magicalstrings": "^0.0.14"
+  },
+  "devDependencies": {
+    "cogs-box": "^1.2.0",
+    "dynamapping": "^1.6.0"
+  }
+}

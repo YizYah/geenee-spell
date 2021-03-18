@@ -1,0 +1,52 @@
+{
+  "name": "foo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "template build script",
+    "commit": "git-cz",
+    "view-coverage": "nyc --extension .ts ava --forbid-only"
+  },
+  "keywords": [
+    "ts-packrat",
+    "geenee"
+  ],
+  "author": "YizYah",
+  "license": "MIT",
+  "dependencies": {
+    "barbells": "^1.3.0"
+  },
+  "devDependencies": {
+    "cogs-box": "^1.2.0"
+  },
+  "bugs": "https://github.com/YizYah/foo/issues",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "homepage": "https://github.com/YizYah/foo",
+  "types": "lib/index.d.ts",
+  "repository": "YizYah/foo",
+  "ava": {
+    "files": [
+      "test/**/*.test.ts"
+    ],
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
+    }
+  }
+}

@@ -6,6 +6,7 @@ const {storeCustomCode, insertCustomCode} = require('custom-jeans')
 const {copyCodeBaseToNewDir} = require('magicalstrings').copyCodeBaseToNewDir
 const {moveOverIgnored} = require('magicalstrings').moveOverIgnored
 import {createSpecElement} from './specs/specCreation/createSpecElement'
+import {updatePackageJson} from './packageJson/updatePackageJson'
 
 const fs = require('fs-extra')
 const {setNsInfo} = require('magicalstrings').nsFiles
@@ -95,20 +96,20 @@ export async function regenerateCode(
     throw new Error(`could not insert custom code: ${error}`)
   }
 
-  // try {
-  //   // const stackInfo: Schema = await buildSchema(nsInfo, config)
-  //   const packageInfoJson = await getPackageInfoJson(
-  //     templateDir,
-  //     codeDir,
-  //     nsInfo,
-  //     // stackInfo,
-  //     config,
-  //   )
-  //   await updatePackageJson(
-  //     codeDir, starter, packageInfoJson
-  //   )
-  // } catch (error) {
-  //   throw new Error(`could not build json: ${error}`)
-  // }
+  try {
+
+    // copy over backed up package.json
+    const codePackageJsonPath = `${codeDir}/package.json`
+    const backupPackageJsonPath = `${codeDir}${suffixes.BACKUP_DIR}/package.json`
+    if (await fs.pathExists(backupPackageJsonPath)) {
+      await fs.copy(backupPackageJsonPath, codePackageJsonPath)
+    }
+
+    await updatePackageJson(
+      codeDir, starter,
+    )
+  } catch (error) {
+    throw new Error(`could not build json: ${error}`)
+  }
 
 }

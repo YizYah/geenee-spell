@@ -13,6 +13,6 @@
     "barbells": "^1.3.0"
   },
   "devDependencies": {
-    "cogs-box": "^1.2.0"
+    "cogs-box": "^1.0.0"
   }
 }
