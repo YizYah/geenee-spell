@@ -138,12 +138,15 @@ test('check Config', async t => {
   //   });
   // });
 
-  // // regenerate again, this time with the new package.json
+  // // regenerate again, this time with an original package.json
   await fs.copy('otherSampleCode/package.json',SAMPLE_CODE + '/package.json')
   await regenerateCode(
     SAMPLE_CODE, {},null,
   )
   const codeJson = await fs.readJson(SAMPLE_CODE + '/package.json')
+
+  // test whether template generated packageJsonInfo is overriding original
+  t.is(codeJson.name, 'enteredName')
 
   // const starterJson = await fs.readJson(SAMPLE_CODE + '.starter/package.json')
 
@@ -169,9 +172,17 @@ test('check Config', async t => {
   t.is(codeJson.newUserAddedKey, 'peace')
   t.is(codeJson.scripts.fake, 'addedByMe')
 
-  // * updates to non-dependencies by the user are maintained
-  t.is(codeJson.main, 'userMain')
-  t.is(codeJson.scripts.build, 'userVersion')
+  //NOTE: this requirement violates the one above that user changes are overwritten
+  // by the general packageJsonInfo of the template.  This is perhaps the hardest
+  // judgment call of the package (really, it's a geenee-rate judgment call).  On
+  // the one hand, users will be annoyed when their change their package.json and it
+  // gets overwritten.  On the other hand, the whole point of geenee is that changes
+  // to the specs (or a template) will result in updated code.  The second point seems
+  // more compelling.
+  //
+  // // * updates to non-dependencies by the user are maintained
+  // t.is(codeJson.main, 'userMain')
+  // t.is(codeJson.scripts.build, 'userVersion')
 
   mockFs.restore()
 });
