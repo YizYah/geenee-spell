@@ -73,6 +73,14 @@ export async function regenerateCode(
     await moveOverIgnored(
       backupDir, codeDir, config
     )
+
+    // copy over backed up package.json
+    const codePackageJsonPath = `${codeDir}/package.json`
+    const backupPackageJsonPath = `${codeDir}${suffixes.BACKUP_DIR}/package.json`
+    if (await fs.pathExists(backupPackageJsonPath)) {
+      await fs.copy(backupPackageJsonPath, codePackageJsonPath)
+    }
+
   } catch (error) {
     throw new Error(`could not move over ignored: ${error}`)
   }
@@ -97,14 +105,6 @@ export async function regenerateCode(
   }
 
   try {
-
-    // copy over backed up package.json
-    const codePackageJsonPath = `${codeDir}/package.json`
-    const backupPackageJsonPath = `${codeDir}${suffixes.BACKUP_DIR}/package.json`
-    if (await fs.pathExists(backupPackageJsonPath)) {
-      await fs.copy(backupPackageJsonPath, codePackageJsonPath)
-    }
-
     await updatePackageJson(
       codeDir, starter,
     )

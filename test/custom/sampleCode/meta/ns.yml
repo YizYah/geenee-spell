@@ -6,9 +6,9 @@ template:
   version: 1
 starter: /home/yisroel/temp/test/foo.starter
 general:
-  packageName: foo
-  author: YizYah
-  owner: YizYah
-  repositoryName: foo
+  packageName: enteredName
+  author: enteredAuthor
+  owner: enteredOwner
+  repositoryName: enteredRepoName
   license: MIT
   multi: true
